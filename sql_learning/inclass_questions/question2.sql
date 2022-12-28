@@ -45,3 +45,23 @@ SELECT inq1.tran_date, inq2.stat_cd, inq2.num_customers, population_cnt-num_cust
 FROM inq1 INNER JOIN inq2 on inq1.tran_date = inq2.tran_date AND inq1.stat_cd = inq2.stat_cd 
 GROUP BY inq1.tran_date, inq2.stat_cd,inq2.num_customers, promotion_target_cnt
 ORDER BY tran_date, stat_cd
+
+/*OUTPUT:
+"tran_date","stat_cd","num_customers","promotion_target_cnt"
+"2022-01-01","CA","2","498"
+"2022-01-01","NY","1","199"
+"2022-01-01","TX","1","399"
+"2022-01-03","NY","1","199"
+"2022-01-04","CA","2","498"
+"2022-01-05","TX","2","398"
+"2022-02-01","NY","1","199"
+"2022-02-03","NV","1","99"
+"2022-02-03","NY","1","199"
+"2022-02-03","TX","1","399"
+"2022-02-05","CA","1","499"
+"2022-02-05","TX","1","399"
+"2022-03-01","CA","1","499"
+"2022-03-02","CA","1","499"
+"2022-04-01","CA","1","499"
+"2022-07-03","NV","1","99"
+*/
