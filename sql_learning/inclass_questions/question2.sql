@@ -41,8 +41,7 @@ ORDER BY tran_date, promotion_cost DESC
 )
 SELECT * 
 FROM inq1
-WHERE rnk <= 2 --could do rank =2 if you dont want 1st cost if its the only one
-
+WHERE rnk = 2 
 /*
 output:
 "tran_date","stat_cd","promotion_cost","rnk"
