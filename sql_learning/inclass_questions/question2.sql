@@ -65,3 +65,29 @@ ORDER BY tran_date, stat_cd
 "2022-04-01","CA","1","499"
 "2022-07-03","NV","1","99"
 */
+
+--2. To reach each remaining potential_customer_cnt cost 5$, then show me the states where company has to spend 2nd high $ amount.
+--(make sure do potential_customer_cnt -allready customer count to get remaining potential customer count)
+WITH inq1 as (
+SELECT *
+FROM cards_ingest.tran_fact tf INNER JOIN lkp_data.lkp_state_details lkp ON tf.stat_cd = lkp.state_cd
+),
+
+inq2 as (
+SELECT tran_date, stat_cd, count(distinct cust_id) as num_customers
+FROM cards_ingest.tran_fact 
+WHERE stat_cd is not NULL
+GROUP BY tran_date, stat_cd
+)
+
+SELECT inq2.stat_cd, inq2.num_customers, 5*(potential_customer_cnt-num_customers) as cost_to_reach
+FROM inq1 INNER JOIN inq2 on inq1.tran_date = inq2.tran_date AND inq1.stat_cd = inq2.stat_cd 
+GROUP BY inq2.stat_cd,inq2.num_customers, cost_to_reach
+ORDER BY cost_to_reach DESC LIMIT 1 OFFSET 1
+
+/* output:
+  "stat_cd": "TX",
+  "num_customers": "2",
+  "cost_to_reach": "1490"
+*/ 
+
