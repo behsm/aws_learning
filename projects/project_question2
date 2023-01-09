@@ -1,0 +1,7 @@
+1. Build a document show casing the redshift architecture using diagram. (No copy Paste- Use diagram)
+2. Create table sql (for 3 table create 3 files and store them in sql folder -- file name as ct_transaction.sql  then put the create table script)
+3. Use python module written in utils (connection set up to database) as pass the three sql file to create table for you.
+Note- Before that drop the tables.
+4.Put values in 3 csv file and use python to load data into the tables.
+5. once all the tables are loaded create 2 more sql file and keep the below sql [Question from Class] written earlier
+and use python script call the sql file and store the output into 2 csv file.
