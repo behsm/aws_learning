@@ -1,0 +1,15 @@
+Use python boto3 to do this:
+1. Create a bucket.
+2. Create files using the python module written earlier. [Generate data order data]
+3. Create folder in s3 and copy the files into the folder.
+
+[ Folder structure is like
+s3://bucket-name/orders_raw/2022-04-01/orders_raw_20220301.csv
+s3://bucket-name/orders_raw/2022-07-01/orders_raw_20220701.csv
+s3://bucket-name/orders_raw/2022-10-01/orders_raw_20221001.csv
+s3://bucket-name/orders_raw/2023-01-01/orders_raw_20230101.csv
+]
+
+4. Delete files one by one.
+5. Copy the files again as done question3.
+6. Delete all the files recursively
