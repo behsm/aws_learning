@@ -1,1 +1,6 @@
-
+hostname = 'localhost'
+username = 'postgres'
+password = 'password'
+database = '1218'
+port = '5432'
+drivername = 'postgresql'
