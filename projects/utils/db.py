@@ -37,5 +37,5 @@ def db_to_df(query: str):
   conn.close()
   return df
   
-def 
+
   
